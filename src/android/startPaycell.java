@@ -126,191 +126,21 @@ public class startPaycell extends Assets {
    * startPaycell
    */
   public void start(JSONArray args, CallbackContext callback) {
-    Intent LaunchIntent;
-    JSONObject params;
-    JSONArray flags;
-    JSONArray component;
+    var activity = this.cordova.getActivity();
 
-    JSONObject extra;
-    String key;
+    LaunchMposInterface.launchMpos(
+      activity.getApplicationContext(),
+      activity,
+      null,
+      1,
+      new LaunchMposInterface.LaunchMposLibInterface() {
 
-    int i;
-
-    try {
-      if (args.get(0) instanceof JSONObject) {
-        params = args.getJSONObject(0);
-
-        /**
-         * disable parsing intent values
-         */
-        if (params.has("noParse")) {
-          NO_PARSE_INTENT_VALS = true;
-        }
-
-        /**
-         * set application
-         * http://developer.android.com/reference/android/content/Intent.html(java.lang.String)
-         */
-        if (params.has("application")) {
-          PackageManager manager = cordova
-            .getActivity()
-            .getApplicationContext()
-            .getPackageManager();
-          LaunchIntent =
-            manager.getLaunchIntentForPackage(params.getString("application"));
-
-          if (LaunchIntent == null) {
-            callback.error(
-              "Application \"" +
-              params.getString("application") +
-              "\" not found!"
-            );
-            return;
-          }
-        }/**
-         * set intent
-         * http://developer.android.com/reference/android/content/Intent.html (java.lang.String)
-         */ else {
-          LaunchIntent = new Intent();
-          if (params.has("intent")) {
-            ComponentName ci = new ComponentName(
-              cordova.getActivity().getPackageName(),
-              params.getString("intent")
-            );
-            LaunchIntent.setComponent(ci);
-          }
-        }
-
-        /**
-         * set package
-         * http://developer.android.com/reference/android/content/Intent.html#setPackage(java.lang.String)
-         */
-        if (params.has("package")) {
-          LaunchIntent.setPackage(params.getString("package"));
-        }
-
-        /**
-         * set action
-         * http://developer.android.com/intl/ru/reference/android/content/Intent.html#setAction%28java.lang.String%29
-         */
-        if (params.has("action")) {
-          LaunchIntent.setAction(
-            getIntentValueString(params.getString("action"))
-          );
-        }
-
-        /**
-         * set category
-         * http://developer.android.com/intl/ru/reference/android/content/Intent.html#addCategory%28java.lang.String%29
-         */
-        if (params.has("category")) {
-          LaunchIntent.addCategory(
-            getIntentValueString(params.getString("category"))
-          );
-        }
-
-        /**
-         * set type
-         * http://developer.android.com/intl/ru/reference/android/content/Intent.html#setType%28java.lang.String%29
-         */
-        if (params.has("type")) {
-          LaunchIntent.setType(params.getString("type"));
-        }
-
-        /**
-         * set data (uri)
-         * http://developer.android.com/intl/ru/reference/android/content/Intent.html#setData%28android.net.Uri%29
-         */
-        if (params.has("uri")) {
-          LaunchIntent.setData(Uri.parse(params.getString("uri")));
-        }
-
-        /**
-         * set flags
-         * http://developer.android.com/intl/ru/reference/android/content/Intent.html#addFlags%28int%29
-         */
-        if (params.has("flags")) {
-          flags = params.getJSONArray("flags");
-
-          for (i = 0; i < flags.length(); i++) {
-            LaunchIntent.addFlags(getIntentValue(flags.getString(i)));
-          }
-        }
-
-        /**
-         * set component
-         * http://developer.android.com/intl/ru/reference/android/content/Intent.html#setComponent%28android.content.ComponentName%29
-         */
-        if (params.has("component")) {
-          component = params.getJSONArray("component");
-
-          if (component.length() == 2) {
-            LaunchIntent.setComponent(
-              new ComponentName(component.getString(0), component.getString(1))
-            );
-          }
-        }
-
-        /**
-         * set extra fields
-         */
-        if (!args.isNull(1)) {
-          extra = args.getJSONObject(1);
-          Iterator<String> iter = extra.keys();
-
-          while (iter.hasNext()) {
-            key = iter.next();
-            Object value = extra.get(key);
-
-            if (value instanceof Integer) {
-              LaunchIntent.putExtra(parseExtraName(key), extra.getInt(key));
-            }
-
-            if (
-              params.has("matchDoubleInString") &&
-              matchDoubleInString(extra.getString(key))
-            ) {
-              LaunchIntent.putExtra(parseExtraName(key), extra.getDouble(key));
-            } else if (value instanceof String) {
-              LaunchIntent.putExtra(parseExtraName(key), extra.getString(key));
-            }
-
-            if (value instanceof Boolean) {
-              LaunchIntent.putExtra(parseExtraName(key), extra.getBoolean(key));
-            }
-          }
-        }
-
-        /**
-         * launch intent
-         */
-        PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
-        pluginResult.setKeepCallback(true);
-
-        if (
-          params.has("intentstart") &&
-          "startActivityForResult".equals(params.getString("intentstart"))
-        ) {
-          cordova.setActivityResultCallback(this);
-          callbackContext = callback;
-          cordova.getActivity().startActivityForResult(LaunchIntent, 1);
-        } else if (
-          params.has("intentstart") &&
-          "sendBroadcast".equals(params.getString("intentstart"))
-        ) {
-          cordova.getActivity().sendBroadcast(LaunchIntent);
-        } else {
-          cordova.getActivity().startActivity(LaunchIntent);
-        }
-
-        callback.sendPluginResult(pluginResult);
-      } else {
-        callback.error("Incorrect params, array is not array object!");
+        @Override
+        public void launchMposLibFinished(
+          LaunchMposLibResult launchMposLibResult
+        ) {}
       }
-    } catch (Exception e) {
-      e.printStackTrace();
-      callback.error(e.getClass() + ": " + e.getMessage());
-    }
+    );
   }
 
   /**

@@ -34,6 +34,11 @@
       src="src/android/Assets.java"
       target-dir="src/com/lampa/startpaycell"
     />
+
+    <resource-file
+      src="arr/MposGatewayLib.aar"
+      target="libs/MposGatewayLib.aar"
+    />
     </platform>
 
 </plugin>
