@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin
+  xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  id="com.lampa-samet.startpaycell"
+  version="6.1.7"
+>
+
+    <name>startPaycell</name>
+    <description
+  >Phonegap plugin for check or launch other application in android device.</description>
+    <license>MIT</license>
+    <keywords>cordova,startpaycell,lampa</keywords>
+
+    <js-module src="www/startPaycell.js" name="startpaycell">
+        <merges target="startPaycell" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="startPaycell">
+                <param
+          name="android-package"
+          value="com.lampa.startpaycell.startPaycell"
+        />
+            </feature>
+        </config-file>
+
+        <source-file
+      src="src/android/startPaycell.java"
+      target-dir="src/com/lampa/startpaycell"
+    />
+        <source-file
+      src="src/android/Assets.java"
+      target-dir="src/com/lampa/startpaycell"
+    />
+    </platform>
+
+</plugin>

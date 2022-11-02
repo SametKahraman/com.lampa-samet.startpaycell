@@ -1,0 +1,58 @@
+{
+  "_from": "git+https://github.com/SametKahraman/com.lampa.startpaycell.git",
+  "_id": "com.lampa-samet.startpaycell@6.1.7",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/com.lampa-samet.startpaycell",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/SametKahraman/com.lampa.startpaycell",
+    "rawSpec": "https://github.com/SametKahraman/com.lampa.startpaycell",
+    "saveSpec": "git+https://github.com/SametKahraman/com.lampa.startpaycell.git",
+    "fetchSpec": "https://github.com/SametKahraman/com.lampa.startpaycell.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/SametKahraman/com.lampa.startpaycell.git#a7defb215737acefecaa9737ea2d6d951fe34e36",
+  "_spec": "https://github.com/SametKahraman/com.lampa.startpaycell",
+  "_where": "D:\\Projects\\BizimHesap\\Snoopy.Mobile",
+  "author": {
+    "name": "lampaa"
+  },
+  "bugs": {
+    "url": "https://github.com/SametKahraman/com.lampa.startpaycell/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com.lampa-samet.startpaycell",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Phonegap plugin for check or launch other application in android device.",
+  "homepage": "https://github.com/SametKahraman/com.lampa.startpaycell#readme",
+  "keywords": [
+    "cordova",
+    "startpaycell",
+    "lampa",
+    "extra",
+    "extrafields",
+    "hasextra",
+    "cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "com.lampa-samet.startpaycell",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SametKahraman/com.lampa.startpaycell.git"
+  },
+  "version": "6.1.7"
+}
