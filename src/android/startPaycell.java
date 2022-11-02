@@ -46,6 +46,8 @@ public class startPaycell extends Assets {
   )
     throws JSONException {      
 
+throw new JSONException("Gelen Action = " + action);   
+
       var activity = this.cordova.getActivity();
     var activityContext = activity.getApplicationContext();
 
