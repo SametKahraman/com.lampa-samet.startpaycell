@@ -36,7 +36,7 @@
     />
 
     <resource-file
-      src="arr/MposGatewayLib.aar"
+      src="aar/MposGatewayLib.aar"
       target="libs/MposGatewayLib.aar"
     />
     </platform>
