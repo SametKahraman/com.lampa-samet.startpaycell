@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.widget.Toast;
+// import android.widget.Toast;
 
 public class startPaycell extends Assets {
   private HashMap<Integer, BroadcastReceiver> broadcastReceiverHashMap = new HashMap<Integer, BroadcastReceiver>();
@@ -46,7 +46,6 @@ public class startPaycell extends Assets {
   )
     throws JSONException {      
 
-throw new JSONException("Gelen Action = " + action);   
 
       var activity = this.cordova.getActivity();
     var activityContext = activity.getApplicationContext();
