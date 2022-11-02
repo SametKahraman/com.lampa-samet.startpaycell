@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-// import android.widget.Toast;
+import android.widget.Toast;
 
 public class startPaycell extends Assets {
   private HashMap<Integer, BroadcastReceiver> broadcastReceiverHashMap = new HashMap<Integer, BroadcastReceiver>();
@@ -54,19 +54,19 @@ Toast toast = Toast.makeText(activityContext, action, Toast.LENGTH_LONG);
 toast.show();
 
 
-    if (action.equals("start")) {
-      this.start(args, callbackContext);
-    } else if (action.equals("check")) {
-      this.check(args, callbackContext);
-    } else if (action.equals("receiver")) {
-      this.receiver(args, callbackContext);
-    } else if (action.equals("unReceiver")) {
-      this.receiver(args, callbackContext);
-    } else if (action.equals("getExtras")) {
-      this.getExtras(callbackContext);
-    } else if (action.equals("getExtra")) {
-      this.getExtra(args, callbackContext);
-    }
+    // if (action.equals("start")) {
+    //   this.start(args, callbackContext);
+    // } else if (action.equals("check")) {
+    //   this.check(args, callbackContext);
+    // } else if (action.equals("receiver")) {
+    //   this.receiver(args, callbackContext);
+    // } else if (action.equals("unReceiver")) {
+    //   this.receiver(args, callbackContext);
+    // } else if (action.equals("getExtras")) {
+    //   this.getExtras(callbackContext);
+    // } else if (action.equals("getExtra")) {
+    //   this.getExtra(args, callbackContext);
+    // }
 
     return true;
   }
