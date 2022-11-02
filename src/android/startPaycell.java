@@ -18,11 +18,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import java.util.HashMap;
 import java.util.Iterator;
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.PluginResult;
+// import org.apache.cordova.CallbackContext;
+// import org.apache.cordova.PluginResult;
+import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.widget.Toast;
 
 public class startPaycell extends Assets {
   private HashMap<Integer, BroadcastReceiver> broadcastReceiverHashMap = new HashMap<Integer, BroadcastReceiver>();
@@ -41,7 +44,15 @@ public class startPaycell extends Assets {
     JSONArray args,
     CallbackContext callbackContext
   )
-    throws JSONException {
+    throws JSONException {      
+
+      var activity = this.cordova.getActivity();
+    var activityContext = activity.getApplicationContext();
+
+Toast toast = Toast.makeText(activityContext, action, Toast.LENGTH_LONG);
+toast.show();
+
+
     if (action.equals("start")) {
       this.start(args, callbackContext);
     } else if (action.equals("check")) {
@@ -126,10 +137,12 @@ public class startPaycell extends Assets {
    * startPaycell
    */
   public void start(JSONArray args, CallbackContext callback) {
+    
     var activity = this.cordova.getActivity();
+    var activityContext = activity.getApplicationContext();
 
     LaunchMposInterface.launchMpos(
-      activity.getApplicationContext(),
+      activityContext,
       activity,
       "{
         customer: {
