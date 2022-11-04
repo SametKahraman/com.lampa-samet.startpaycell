@@ -144,6 +144,15 @@ public class startPaycell extends Assets {
    * startPaycell
    */
   public void start(JSONArray args, CallbackContext callback) {
+    Toast toast = Toast.makeText(
+      this.cordova.getActivity().getApplicationContext(),
+      action,
+      Toast.LENGTH_LONG
+    );
+    toast.show();
+
+    Log.e("Baris", "Buda denemesi");
+
     LaunchMposInterface.launchMpos(
       this.cordova.getActivity().getApplicationContext(),
       this.cordova.getActivity(),
