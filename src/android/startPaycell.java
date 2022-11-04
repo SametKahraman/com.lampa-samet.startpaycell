@@ -46,11 +46,7 @@ public class startPaycell extends Assets {
   )
     throws JSONException {      
 
-
-      var activity = this.cordova.getActivity();
-    var activityContext = activity.getApplicationContext();
-
-Toast toast = Toast.makeText(activityContext, action, Toast.LENGTH_LONG);
+Toast toast = Toast.makeText(this.cordova.getActivity().getApplicationContext(), action, Toast.LENGTH_LONG);
 toast.show();
 
 
@@ -138,13 +134,10 @@ toast.show();
    * startPaycell
    */
   public void start(JSONArray args, CallbackContext callback) {
-    
-    var activity = this.cordova.getActivity();
-    var activityContext = activity.getApplicationContext();
 
     LaunchMposInterface.launchMpos(
-      activityContext,
-      activity,
+      this.cordova.getActivity().getApplicationContext(),
+      this.cordova.getActivity(),
       "{
         customer: {
             customerAddress: ""İstanbul"",
