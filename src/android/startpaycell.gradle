@@ -5,7 +5,9 @@ repositories{
    }
 }
 
-
+implementation {
+   compile(name:'MposGatewayLib', ext:'aar')
+}
 
 android {
   packagingOptions {
