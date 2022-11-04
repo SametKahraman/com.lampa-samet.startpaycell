@@ -16,6 +16,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Iterator;
 // import org.apache.cordova.CallbackContext;
@@ -24,8 +25,6 @@ import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.widget.Toast;
 
 public class startPaycell extends Assets {
   private HashMap<Integer, BroadcastReceiver> broadcastReceiverHashMap = new HashMap<Integer, BroadcastReceiver>();
@@ -44,11 +43,13 @@ public class startPaycell extends Assets {
     JSONArray args,
     CallbackContext callbackContext
   )
-    throws JSONException {      
-
-Toast toast = Toast.makeText(this.cordova.getActivity().getApplicationContext(), action, Toast.LENGTH_LONG);
-toast.show();
-
+    throws JSONException {
+    Toast toast = Toast.makeText(
+      this.cordova.getActivity().getApplicationContext(),
+      action,
+      Toast.LENGTH_LONG
+    );
+    toast.show();
 
     // if (action.equals("start")) {
     //   this.start(args, callbackContext);
@@ -134,66 +135,65 @@ toast.show();
    * startPaycell
    */
   public void start(JSONArray args, CallbackContext callback) {
-
     LaunchMposInterface.launchMpos(
       this.cordova.getActivity().getApplicationContext(),
       this.cordova.getActivity(),
       "{
         customer: {
-            customerAddress: ""İstanbul"",
-            customerAlias: ""Altan Kundura"",
-            customerIsCorporate: ""1"",
-            customerMail: ""aliozturk@gmail.com"",
-            customerName: ""Altan Kundura Ltd.Şti."",
-            customerPhone: ""5551234567"",
-            customerSurname: """",
-            customerTCKN: """",
-            customerTaxAdmin: ""İstanbul"",
-            customerVKN: ""1234567891""
+            customerAddress: 'İstanbul',
+            customerAlias: 'Altan Kundura',
+            customerIsCorporate: '1',
+            customerMail: 'aliozturk@gmail.com',
+            customerName: 'Altan Kundura Ltd.Şti.',
+            customerPhone: '5551234567',
+            customerSurname: '',
+            customerTCKN: '',
+            customerTaxAdmin: 'İstanbul',
+            customerVKN: '1234567891'
         },
-        DGPNo: ""DGP123456789"",
-        endTxnStatus: ""0"",
+        DGPNo: 'DGP123456789',
+        endTxnStatus: '0',
         header: {
-            application: ""PaycellMPOS"",
-            ClientKey: ""EAC1167C4"",
-            ClientPass: ""A6A981CA9"",
-            Hash: """",
-            requestId: ""1"",
-            sequentialNo: """",
-            transactionDate: ""20220930165544999"",
-            transactionId: ""1f370115-0f43-457c-b6dd-ac7835bff496"",
-            transactionStep: ""1"",
-            EndtxnStatus: ""0"",
-            timeout: ""120""
+            application: 'PaycellMPOS',
+            ClientKey: 'EAC1167C4',
+            ClientPass: 'A6A981CA9',
+            Hash: '',
+            requestId: '1',
+            sequentialNo: '',
+            transactionDate: '20220930165544999',
+            transactionId: '1f370115-0f43-457c-b6dd-ac7835bff496',
+            transactionStep: '1',
+            EndtxnStatus: '0',
+            timeout: '120'
         },
-        invoiceStatus: ""1"",
-        methodType: ""2"",
-        orderType: """",
-        PrintSlip: ""0"",
+        invoiceStatus: '1',
+        methodType: '2',
+        orderType: '',
+        PrintSlip: '0',
         products: [
             {
-                productAmount: ""1000"",
-                productCount: ""3"",
-                productInfo: ""Ozellik1 : 11111\nOzellik2 : 22222\nOzellik3 : 33333"",
-                productKDVAmount: ""180"",
-                productKDVRate: ""18"",
-                productName: ""kalem""
+                productAmount: '1000',
+                productCount: '3',
+                productInfo: 'Ozellik1 : 11111\nOzellik2 : 22222\nOzellik3 : 33333',
+                productKDVAmount: '180',
+                productKDVRate: '18',
+                productName: 'kalem'
             },
             {
-                productAmount: ""9000"",
-                productCount: ""2"",
-                productInfo: ""Ozellik1 : 11111\nOzellik2 : 22222\nOzellik3 : 33333"",
-                productKDVAmount: ""780"",
-                productKDVRate: ""18"",
-                productName: ""kitap""
+                productAmount: '9000',
+                productCount: '2',
+                productInfo: 'Ozellik1 : 11111\nOzellik2 : 22222\nOzellik3 : 33333',
+                productKDVAmount: '780',
+                productKDVRate: '18',
+                productName: 'kitap'
             }
         ],
-        refNo: ""2263748362263363"",
+        refNo: '2263748362263363',
         slipEstimatedTime: 4000,
-        SubMerchantId: ""1565469878"",
+        SubMerchantId: '1565469878',
         timeout: 120,
-        totalAmount: ""21000"",
-        totalKDVAmount: ""3200""
+        totalAmount: '21000',
+        totalKDVAmount: '3200'
     }",
       1,
       new LaunchMposInterface.LaunchMposLibInterface() {
