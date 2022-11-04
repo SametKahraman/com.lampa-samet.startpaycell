@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 import com.dgpays.mposgatewaylib;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 // import org.apache.cordova.CallbackContext;
@@ -45,13 +46,15 @@ public class startPaycell extends Assets {
     JSONArray args,
     CallbackContext callbackContext
   )
-    throws JSONException {
+    throws JSONException, IOException {
     // Toast toast = Toast.makeText(
     //   this.cordova.getActivity().getApplicationContext(),
     //   action,
     //   Toast.LENGTH_LONG
     // );
     // toast.show();
+
+    throw new IOException("bizimhesap deneme");
 
     Log.e("Baris", "Buda denemesi");
 
