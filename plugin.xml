@@ -22,10 +22,12 @@
       type="gradleReference"
     />
 
-    <resource-file
+    <!-- <resource-file
       src="aar/MposGatewayLib.aar"
       target="libs/MposGatewayLib.aar"
-    />
+    /> -->
+
+    <lib-file src="libs/MposGatewayLib.aar" />
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="startPaycell">

@@ -1,3 +1,6 @@
+// dependencies {
+//    implementation files("libs/MposGatewayLib.aar")
+// }
 dependencies {
-   implementation files("libs/MposGatewayLib.aar")
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
 }
