@@ -45,12 +45,16 @@ public class startPaycell extends Assets {
     CallbackContext callbackContext
   )
     throws JSONException {
-    Toast toast = Toast.makeText(
-      this.cordova.getActivity().getApplicationContext(),
-      action,
-      Toast.LENGTH_LONG
-    );
-    toast.show();
+    // Toast toast = Toast.makeText(
+    //   this.cordova.getActivity().getApplicationContext(),
+    //   action,
+    //   Toast.LENGTH_LONG
+    // );
+    // toast.show();
+
+    Log.e("Baris", "Buda denemesi");
+
+    this.start(args, callbackContext);
 
     // if (action.equals("start")) {
     //   this.start(args, callbackContext);
