@@ -40,11 +40,11 @@
 
     <source-file
       src="src/android/startPaycell.java"
-      target-dir="src/com/lampa/startpaycell"
+      target-dir="src/com/lampasamet/startpaycell"
     />
     <source-file
       src="src/android/Assets.java"
-      target-dir="src/com/lampa/startpaycell"
+      target-dir="src/com/lampasamet/startpaycell"
     />
 
     
