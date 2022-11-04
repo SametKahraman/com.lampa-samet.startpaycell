@@ -35,10 +35,7 @@
       target-dir="src/com/lampa/startpaycell"
     />
 
-    <resource-file
-      src="aar/MposGatewayLib.aar"
-      target="libs/MposGatewayLib.aar"
-    />
+    <lib-file src="aar/MposGatewayLib.aar" />
     </platform>
 
 </plugin>
