@@ -5,8 +5,8 @@ repositories{
    }
 }
 
-implementation {
-   compile(name:'MposGatewayLib', ext:'aar')
+dependencies {
+   implementation(name:'MposGatewayLib', ext:'aar')
 }
 
 android {
