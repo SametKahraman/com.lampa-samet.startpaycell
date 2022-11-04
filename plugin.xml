@@ -16,11 +16,11 @@
   </js-module>
 
   <platform name="android">
-    <framework
+    <!-- <framework
       src="src/android/startpaycell.gradle"
       custom="true"
       type="gradleReference"
-    />
+    /> -->
 
     <!-- <resource-file
       src="aar/MposGatewayLib.aar"
